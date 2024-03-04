@@ -6,8 +6,8 @@ import Home from "./views/Home";
 import Projects from "./views/Projects";
 import Archive from "./views/Archive";
 import Office from "./views/Office";
+import NotFound from "./views/NotFound";
 import "./App.css";
-import "./fonts/Neue_Montreal/PPNeueMontreal-Regular.ttf";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/projects" element={<Projects />}></Route>
         <Route path="/archive" element={<Archive />}></Route>
         <Route path="/office" element={<Office />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );

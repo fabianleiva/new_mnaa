@@ -10,7 +10,7 @@ const ApiProvider = ({ children }) => {
 
   const getAllProjects = async () => {
     try {
-      const response = await axios.get(`${apiUrl}`);
+      const response = await axios.get(apiUrl);
       const posts = response.data;
       setProjects(posts);
     } catch (error) {
