@@ -1,4 +1,3 @@
-import "animate.css";
 import { Route, Routes } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Home from "./views/Home";
@@ -8,6 +7,7 @@ import Archive from "./views/Archive";
 import Office from "./views/Office";
 import NotFound from "./views/NotFound";
 import "./App.css";
+import "animate.css";
 
 function App() {
   return (
