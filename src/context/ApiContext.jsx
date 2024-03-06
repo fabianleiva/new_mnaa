@@ -6,7 +6,7 @@ export const ApiContext = createContext();
 const ApiProvider = ({ children }) => {
   const [projects, setProjects] = useState([]);
   const apiUrl =
-    "https://new.mnaa.cl/wp/wp-json/wp/v2/projects?acf_format=standard&_fields=id,title,acf&per_page=99";
+    "https://new.mnaa.cl/wp/wp-json/wp/v2/projects?acf_format=standard&_fields=id,title,slug,acf&per_page=99";
 
   const getAllProjects = async () => {
     try {
