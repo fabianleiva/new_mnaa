@@ -7,24 +7,23 @@ const NavigationBar = () => {
     <>
       <header>
         <nav>
-          <div className="linkSection">
+          <div className="flex">
             <NavLink className={setActiveClass} to="/">
-              <h3 className="textSize1">HOME,</h3>
+              <h3 className="text-2xl me-1">HOME,</h3>
             </NavLink>
             <NavLink className={setActiveClass} to="/projects">
-              <h3 className="textSize1">PROYECTOS,</h3>
+              <h3 className="text-2xl me-1">PROYECTOS,</h3>
             </NavLink>
             <NavLink className={setActiveClass} to="/archive">
-              <h3 className="textSize1">ARCHIVO,</h3>
+              <h3 className="text-2xl me-1">ARCHIVO,</h3>
             </NavLink>
             <NavLink className={setActiveClass} to="/office">
-              <h3 className="textSize1">OFICINA</h3>
+              <h3 className="text-2xl">OFICINA</h3>
             </NavLink>
           </div>
           <div className="nameSection">
             <NavLink className={setActiveClass} to="/">
-              <h3 className="webNameBig textSize1">MAX NÚÑEZ ARQUITECTOS</h3>
-              <h3 className="webNameSmall textSize1">MNAA</h3>
+              <h3 className="text-2xl">MAX NÚÑEZ ARQUITECTOS</h3>
             </NavLink>
           </div>
         </nav>

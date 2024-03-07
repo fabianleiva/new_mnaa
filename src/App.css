@@ -11,24 +11,24 @@
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  overscroll-behavior: none;
+html{
+  background-color: #fafafa;
 }
 
 main {
-  margin-top: 20vh;
+  margin-top: 25vh;
 }
 
 #root {
   margin: 0 auto;
-  padding: 30px;
   text-align: center;
   color: #242424;
-  background-color: #fafafa;
-  min-height: 100vh;
   min-width: 100%;
   font-family: "Right-Grotesk-Compact-Regular";
+}
+
+body {
+  overscroll-behavior: none;
 }
 
 a {
@@ -44,33 +44,11 @@ nav {
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top: 30px;
-  left: 30px;
-  right: 30px;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
   z-index: 1000;
-}
-
-.textSize1 {
-  font-size: 1.6rem;
-}
-
-.webNameSmall {
-  display: none;
-}
-
-.linkSection {
-  display: flex;
-}
-
-.linkSection h3 {
-  margin-right: 5px;
-}
-
-.featuredGallery {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: transparent;
 }
 
 .featuredImageContainer {
@@ -85,7 +63,7 @@ nav {
   height: fit-content;
 }
 
-.imgOnEdge {
+.imageOnEdge {
   margin-left: -60px;
 }
 
@@ -102,64 +80,8 @@ nav {
 }
 
 .projectImage {
-  height: 73vh;
+  height: 72vh;
   margin: 0px 30px 0px 0px;
-}
-
-.grid_2_1_2 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  margin-bottom: 150px;
-  gap: 30px;
-}
-
-.grid_1_2_2 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
-  margin-bottom: 150px;
-  gap: 30px;
-}
-
-.grid_2_2_1 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
-  margin-bottom: 150px;
-  gap: 30px;
-}
-
-.grid_3_2 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  margin-bottom: 150px;
-  height: auto;
-  gap: 30px;
-}
-
-.grid_1 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-bottom: 150px;
-}
-
-.grid_2_1_1_1 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr 1fr;
-  margin-bottom: 150px;
-  gap: 30px;
-}
-
-.grid_1_1_2_1 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  margin-bottom: 150px;
-  gap: 30px;
 }
 
 .emptyImg{
@@ -167,12 +89,6 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .webNameBig {
-    display: none;
-  }
-  .webNameSmall {
-    display: block;
-  }
   .textSize1 {
     font-size: 1rem;
   }
