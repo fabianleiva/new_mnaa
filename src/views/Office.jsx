@@ -1,6 +1,6 @@
 const Office = () => {
   return (
-    <main>
+    <main className="mt-[25vh]">
       <h4 className="text-2xl font-bold">(seccion oficina)</h4>
     </main>
   );

@@ -1,6 +1,6 @@
 const NotFound = () => {
     return (
-      <main>
+      <main className="mt-[25vh]">
         <h4 className="text-2xl font-bold">(404)</h4>
       </main>
     );

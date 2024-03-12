@@ -1,6 +1,6 @@
 const Archive = () => {
   return (
-    <main>
+    <main className="mt-[25vh]">
       <h4 className="text-2xl font-bold">(seccion archivo)</h4>
     </main>
   );

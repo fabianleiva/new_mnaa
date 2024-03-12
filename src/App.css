@@ -1,7 +1,80 @@
 @font-face {
   font-family: "Right-Grotesk-Compact-Regular";
   src: local("Right-Grotesk-Compact-Regular"),
-    url("./fonts/Right_Grotesk/PPRightGrotesk-CompactRegular.ttf")
+    url("./fonts/pp/Right Grotesk/PPRightGrotesk-CompactRegular.ttf")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "PPNeueMontreal-Book";
+  src: local("PPNeueMontreal-Book"),
+    url("./fonts/pp/Neue Montreal/PPNeueMontreal-Book.ttf") format(truetype);
+}
+
+@font-face {
+  font-family: "PPNeueMontreal-Medium";
+  src: local("PPNeueMontreal-Medium"),
+    url("./fonts/pp/Neue Montreal/PPNeueMontreal-Medium.woff") format(truetype);
+}
+
+@font-face {
+  font-family: "ABCAsfalt-Light-Trial";
+  src: local("ABCAsfalt-Light-Trial"),
+    url("./fonts/dinamo/ABC Asfalt/ABCAsfalt-Light-Trial.woff") format(truetype);
+}
+
+@font-face {
+  font-family: "ABCSynt-Regular-Trial";
+  src: local("ABCSynt-Regular-Trial"),
+    url("./fonts/dinamo/ABC Synt/ABCSynt-Regular-Trial.woff") format(truetype);
+}
+
+@font-face {
+  font-family: "ABCGintoNord-Hairline-Trial";
+  src: local("ABCGintoNord-Hairline-Trial"),
+    url("./fonts/dinamo/ABC Ginto/ABC Ginto Normal/ABCGintoNormal-Light-Trial.woff")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "ABCGintoNord-Light-Trial";
+  src: local("ABCGintoNord-Light-Trial"),
+    url("./fonts/dinamo/ABC Ginto/ABC Ginto Nord/ABCGintoNord-Light-Trial.woff")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "ABCArizonaSerif-Regular-Trial";
+  src: local("ABCArizonaSerif-Regular-Trial"),
+    url("./fonts/dinamo/ABC Arizona/ABC Arizona Serif/ABCArizonaSerif-Regular-Trial.woff")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "ABCMonumentGrotesk-Regular-Trial";
+  src: local("ABCMonumentGrotesk-Regular-Trial"),
+    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk/ABCMonumentGrotesk-Regular-Trial.woff")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "ABCMonumentGrotesk-Medium";
+  src: local("ABCMonumentGrotesk-Medium"),
+    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk/ABCMonumentGrotesk-Medium-Trial.woff")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "ABCMonumentGrotesk-Light-Trial";
+  src: local("ABCMonumentGrotesk-Light-Trial"),
+    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk/ABCMonumentGrotesk-Light-Trial.woff")
+      format(truetype);
+}
+
+@font-face {
+  font-family: "ABCGintoNormal-Regular-Trial";
+  src: local("ABCGintoNormal-Regular-Trial"),
+    url("./fonts/dinamo/ABC Ginto/ABC Ginto Normal/ABCGintoNormal-Regular-Trial.woff")
       format(truetype);
 }
 
@@ -11,12 +84,8 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   background-color: #fafafa;
-}
-
-main {
-  margin-top: 25vh;
 }
 
 #root {
@@ -24,11 +93,11 @@ main {
   text-align: center;
   color: #242424;
   min-width: 100%;
-  font-family: "Right-Grotesk-Compact-Regular";
+  font-family: "ABCMonumentGrotesk-Light-Trial";
 }
 
-body {
-  overscroll-behavior: none;
+.mnaaBold {
+  font-family: "ABCMonumentGrotesk-Regular-Trial";
 }
 
 a {
@@ -38,54 +107,21 @@ a {
 }
 a:hover {
   text-decoration: underline;
+  color: #242424;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  background-color: transparent;
+.active {
+  color: #242424;
+  text-decoration: underline;
 }
 
-.featuredImageContainer {
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  height: fit-content;
+.inactive {
+  color: #bebebe;
+  text-decoration: none;
 }
 
-.featuredImage {
-  width: 100%;
-  height: fit-content;
-}
-
-.imageOnEdge {
-  margin-left: -60px;
-}
-
-.projecGallery {
-  position: absolute;
-  overflow-x: auto;
-  height: 20%;
-  width: 100vh;
-}
-
-.slider_inner {
-  display: flex;
-  height: 20%;
-}
-
-.projectImage {
-  height: 72vh;
-  margin: 0px 30px 0px 0px;
-}
-
-.emptyImg{
-  display: block;
+.projectName {
+  transition: top 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -103,9 +139,7 @@ nav {
     flex-direction: column;
     margin-bottom: 30px;
   }
-  #root {
-    padding: 10px;
-  }
+
   .featuredImageContainer {
     margin: 0px 15px 0px 15px;
     max-width: 100%;
@@ -128,7 +162,7 @@ nav {
     height: auto;
     margin: 0px 30px 0px 0px;
   }
-  .emptyImg{
+  .emptyImg {
     display: none;
   }
 }
