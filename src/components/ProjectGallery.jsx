@@ -40,7 +40,7 @@ const ProjectGallery = () => {
           <div className="slider_inner flex" onWheel={handleWheelScroll}>
             {project && (
               <>
-                <div className="projectTitleSummary">
+                <div className="projectTitleSummary pr-[10rem]">
                   <p className="w-[35rem] px-6 text-left text-xl mnaaBold">
                     {project.acf.project_title}
                   </p>
@@ -55,7 +55,7 @@ const ProjectGallery = () => {
                     project.acf.project_images[key] && (
                       <img
                         key={key}
-                        className="h-[72vh] pr-6"
+                        className="h-[72vh] min-w-fit pr-[10rem]"
                         src={project.acf.project_images[key]}
                         alt={`Image ${key}`}
                       />

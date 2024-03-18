@@ -18,7 +18,7 @@ const FeaturedGallery = () => {
     const index = projects.findIndex((e) => e.acf.project_id === projectId);
     if (index !== -1) {
       const project = projects[index];
-      const imageClass = projectId === "69" ? "min-w-full ml-[-60px] mb-6" : "";
+      const imageClass = projectId === "69" ? "min-w-full ml-[-2.5rem] mb-6" : "";
       const isHovered = hoveredImage === projectId;
 
       return (
@@ -33,7 +33,7 @@ const FeaturedGallery = () => {
               className={`projectName absolute z-[-10]`}
               style={{ top: isHovered ? "-1.5rem " : 0 }}
             >
-              <span>{project.acf.project_title}</span>
+              <span className="text-sm">{project.acf.project_title}</span>
             </div>
             <img
               className={`${imageClass} featuredImage min-w-full z-0`}
