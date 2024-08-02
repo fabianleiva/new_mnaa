@@ -1,30 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: "ABCMonumentGrotesk-Regular-Trial";
-  src: local("ABCMonumentGrotesk-Regular-Trial"),
-    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk/ABCMonumentGrotesk-Regular-Trial.woff")
-      format(truetype);
+  font-family: "bookAntiqua";
+  src: local("bookAntiqua"),
+    url("./fonts/book_antiqua/BKANT.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "ABCMonumentGrotesk-Medium";
-  src: local("ABCMonumentGrotesk-Medium"),
-    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk/ABCMonumentGrotesk-Medium-Trial.woff")
-      format(truetype);
+  font-family: "bookAntiquaItalic";
+  src: local("bookAntiquaItalic"),
+    url("./fonts/book_antiqua/ANTQUAI.TTF") format("truetype");
 }
 
 @font-face {
-  font-family: "ABCMonumentGrotesk-Light-Trial";
-  src: local("ABCMonumentGrotesk-Light-Trial"),
-    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk/ABCMonumentGrotesk-Light-Trial.woff")
-      format(truetype);
+  font-family: "supreme-regular";
+  src: local("SupremeLLTrialWeb-Regular"),
+    url("./fonts/lineto/supreme/SupremeTrial-Regular.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "ABCGintoNormal-Regular-Trial";
-  src: local("ABCGintoNormal-Regular-Trial"),
-    url("./fonts/dinamo/ABC Ginto/ABC Ginto Normal/ABCGintoNormal-Regular-Trial.woff")
-      format(truetype);
+  font-family: "supreme-bold";
+  src: local("SupremeLLTrialWeb-Bold"),
+    url("./fonts/lineto/supreme/SupremeTrial-Bold.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "supreme-light";
+  src: local("SupremeLLTrialWeb-Light"),
+    url("./fonts/lineto/supreme/SupremeTrial-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "supreme-thin";
+  src: local("SupremeLLTrialWeb-Thin"),
+    url("./fonts/lineto/supreme/SupremeTrial-Thin.otf") format("opentype");
+}
+
 
 * {
   margin: 0;
@@ -41,11 +54,7 @@ html {
   text-align: center;
   color: #242424;
   min-width: 100%;
-  font-family: "ABCMonumentGrotesk-Light-Trial";
-}
-
-.mnaaBold {
-  font-family: "ABCMonumentGrotesk-Regular-Trial";
+  font-family: "supreme-regular";
 }
 
 a {
@@ -72,8 +81,9 @@ a:hover {
   transition: top 0.3s ease;
 }
 
-.webTitle{
+.webTitle {
   text-decoration: none;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {

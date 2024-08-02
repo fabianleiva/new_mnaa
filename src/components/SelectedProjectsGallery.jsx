@@ -31,9 +31,9 @@ const FeaturedGallery = () => {
           <Link className="flex bg-[#fafafa]" to={`/projects/${project.slug}`}>
             <div
               className={`projectName absolute z-[-10]`}
-              style={{ top: isHovered ? "-1.5rem " : 0 }}
+              style={{ top: isHovered ? "-1.7rem " : 0 }}
             >
-              <span className="text-sm">{project.acf.project_title}</span>
+              <span className="text-[1.1rem]">{project.acf.project_title}</span>
             </div>
             <img
               className={`${imageClass} featuredImage min-w-full z-0`}
@@ -48,7 +48,7 @@ const FeaturedGallery = () => {
   };
 
   return (
-    <section className="flex flex-col mx-6">
+    <section className="flex flex-col">
       <div className="flex flex-col md:grid grid-cols-[2fr_1fr_2fr] gap-5 mb-5 md:mb-40">
         {renderProjects("54")}
         {renderProjects("71")}
