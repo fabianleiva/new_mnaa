@@ -44,7 +44,7 @@ const ProjectGallery = () => {
                   <p className="w-[35rem] px-6 text-left text-xl mnaaBold">
                     {project.acf.project_title}
                   </p>
-                  <p className="w-[35rem] px-6 text-left text-pretty">
+                  <p className="w-[35rem] px-6 text-left text-pretty font-[EB-Garamond-Regular]">
                     {project.acf.summary}
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const ProjectGallery = () => {
                     )
                 )}
                 <div className="projectInfo flex flex-col justify-between">
-                  <div className="info">
+                  <div className="font-[EB-Garamond-Regular]">
                     <p className="w-[35rem] pr-6 text-right">
                       Arquitectos: {project.acf.architects}
                     </p>

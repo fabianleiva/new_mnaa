@@ -13,7 +13,7 @@ const Info = () => {
               </div>
             </div>
             <div className="col-span-4 text-left">
-              <p className="font-[bookAntiquaItalic]">
+              <p className="font-[EB-Garamond-Regular] text-md">
                 Max Núñez Arquitectos es una oficina de arquitectura ubicada en
                 Santiago de Chile formada el año 2010. Ha desarrollando diversos
                 proyectos públicos y privados tanto en Chile como en el
@@ -36,7 +36,7 @@ const Info = () => {
               </p>
               <div className="col-span-2 pt-16 lg:pt-0 mt-10 text-sm">
                 <p className="pb-2 font-['supreme-bold']">Direccion</p>
-                <div className="font-['supreme-light']">
+                <div className="font-[EB-Garamond-Italic]">
                   <p>Andres de Fuenzalida 17, Of. 52</p>
                   <p>Providencia, Santiago</p>
                   <p>ZIP 7510077</p>
@@ -44,13 +44,13 @@ const Info = () => {
               </div>
               <div className="col-span-2 pt-12 lg:pt-0 mt-4 text-sm">
                 <p className="pb-2 font-['supreme-bold']">Correo</p>
-                <div className="font-['supreme-light']">
+                <div className="font-[EB-Garamond-Italic]">
                   <p>contacto@mnaa.cl</p>
                 </div>
               </div>
               <div className="col-span-2 pt-12 lg:pt-0 mt-4 text-sm">
                 <p className="pb-2 font-['supreme-bold']">Instagram</p>
-                <div className="font-['supreme-light']">
+                <div className="font-[EB-Garamond-Italic]">
                   <div className="mr-2">
                     <p>
                       <a
@@ -84,7 +84,7 @@ const Info = () => {
             <p className="uppercase text-3xl font-['supreme-bold'] mr-1">
               Equipo
             </p>
-            <p className="font-[bookAntiquaItalic] text-lg text-[#bebebe]">
+            <p className="font-[EB-Garamond-Italic] text-lg text-[#bebebe]">
               2024
             </p>
           </div>
@@ -95,7 +95,7 @@ const Info = () => {
               <p className="col-span-2 uppercase font-['supreme-bold'] text-lg">
                 Socios
               </p>
-              <p className="col-span-5 text-[#bebebe] font-[bookAntiquaItalic] text-lg">
+              <p className="col-span-5 text-[#bebebe] font-[EB-Garamond-Italic] text-lg">
                 Descripcion
               </p>
             </div>
@@ -111,7 +111,7 @@ const Info = () => {
                 <p className="font-['supreme-light']">
                   Arquitecto y Socio Fundador
                 </p>
-                <p className="font-['bookAntiquaItalic'] text-[1rem] leading-6">
+                <p className="font-[EB-Garamond-Regular] text-sm leading-6">
                   Se graduó de Arquitecto y Magister en Arquitectura de la
                   Universidad Católica de Chile en el 2004. El Año 2010 obtuvo
                   un MSc in Advanced Architectural Design de la Universidad de
@@ -144,7 +144,7 @@ const Info = () => {
               </div>
               <div className="col-span-3 flex flex-col justify-between">
                 <p className="font-['supreme-light']">Arquitecto Asociado</p>
-                <p className="font-['bookAntiquaItalic'] text-[1rem] leading-6">
+                <p className="font-[EB-Garamond-Italic] text-sm leading-6">
                   Se graduó de Arquitecto en el Politécnico de Milán en el 2005,
                   con una tesis desarrollada en conjunto con la Universidad de
                   Buenos Aires. Desde el año 2006 vive y trabaja en Chile, de
@@ -185,81 +185,81 @@ const Info = () => {
               </div>
             </div>
             <hr className="col-span-6 w-full h-[1px] bg-[#262523] border-0 rounded dark:bg-gray-700" />
-            <div className="grid grid-cols-7 mt-2 align-between">
+            <div className="grid grid-cols-7 mt-2 align-between font-[EB-Garamond-Regular] text-sm">
               <div className="col-span-2">
-                <p className="font-['supreme-light']">Carlos Rosas</p>
+                <p>Carlos Rosas</p>
               </div>
-                <p className="col-span-2 font-['supreme-light']">Arquitecto Senior / Jefe de Proyecto</p>
-                <p className="col-span-2 font-['supreme-light']">Universidad Diego Portales</p>
+                <p className="col-span-2 ">Arquitecto Senior / Jefe de Proyecto</p>
+                <p className="col-span-2 ">Universidad Diego Portales</p>
                 <div className="flex justify-between">
-                <p className="font-['supreme-light']">
+                <p>
                   2013
                 </p>
-                <p className="font-['supreme-light']">
+                <p>
                   Chile
                 </p>
               </div>
             </div>
             <hr className="col-span-6 w-full h-[1px] bg-[#262523] border-0 rounded dark:bg-gray-700 mt-2" />
-            <div className="grid grid-cols-7 mt-2 align-between">
+            <div className="grid grid-cols-7 mt-2 align-between font-[EB-Garamond-Regular] text-sm">
               <div className="col-span-2">
-                <p className="font-['supreme-light']">Pabla Amigo</p>
+                <p>Pabla Amigo</p>
               </div>
-                <p className="col-span-2 font-['supreme-light']">Arquitecto / Jefe de Proyecto</p>
-                <p className="col-span-2 font-['supreme-light']">Universidad Catolica</p>
+                <p className="col-span-2">Arquitecto / Jefe de Proyecto</p>
+                <p className="col-span-2">Universidad Catolica</p>
                 <div className="flex justify-between">
-                <p className="font-['supreme-light']">
+                <p>
                   2016
                 </p>
-                <p className="font-['supreme-light']">
+                <p>
                   Chile
                 </p>
               </div>
             </div>
             <hr className="col-span-6 w-full h-[1px] bg-[#262523] border-0 rounded dark:bg-gray-700 mt-2" />
-            <div className="grid grid-cols-7 mt-2 align-between">
+            <div className="grid grid-cols-7 mt-2 align-between font-[EB-Garamond-Regular] text-sm">
               <div className="col-span-2">
-                <p className="font-['supreme-light']">Fabian Leiva</p>
+                <p>Fabian Leiva</p>
               </div>
-                <p className="col-span-2 font-['supreme-light']">Arquitecto / Jefe de Proyecto / IT</p>
-                <p className="col-span-2 font-['supreme-light']">Universidad de Chile</p>
+                <p className="col-span-2">Arquitecto / Jefe de Proyecto / IT</p>
+                <p className="col-span-2">Universidad de Chile</p>
                 <div className="flex justify-between">
-                <p className="font-['supreme-light']">
+                <p>
                   2019
                 </p>
-                <p className="font-['supreme-light']">
+                <p>
                   Chile
                 </p>
               </div>
             </div>
             <hr className="col-span-6 w-full h-[1px] bg-[#262523] border-0 rounded dark:bg-gray-700 mt-2" />
-            <div className="grid grid-cols-7 mt-2 align-between">
+            <div className="grid grid-cols-7 mt-2 align-between font-[EB-Garamond-Regular] text-sm">
               <div className="col-span-2">
-                <p className="font-['supreme-light']">Andres Sanfuentes</p>
+                <p>Andres Sanfuentes</p>
               </div>
-                <p className="col-span-2 font-['supreme-light']">Arquitecto</p>
-                <p className="col-span-2 font-['supreme-light']">Universidad Catolica</p>
+                <p className="col-span-2">Arquitecto</p>
+                <p className="col-span-2">Universidad Catolica</p>
                 <div className="flex justify-between">
-                <p className="font-['supreme-light']">
+                <p>
                   2021
                 </p>
-                <p className="font-['supreme-light']">
+                <p>
                   Chile
                 </p>
               </div>
             </div>
             <hr className="col-span-6 w-full h-[1px] bg-[#262523] border-0 rounded dark:bg-gray-700 mt-2" />
-            <div className="grid grid-cols-7 mt-2 align-between">
+            <div className="grid grid-cols-7 mt-2 align-between font-[EB-Garamond-Regular] text-sm">
               <div className="col-span-2">
-                <p className="font-['supreme-light']">Isabel Muzzo</p>
+                <p>Isabel Muzzo</p>
               </div>
-                <p className="col-span-2 font-['supreme-light']">Administradora</p>
-                <p className="col-span-2 font-['supreme-light']">Universidad Catolica</p>
+                <p className="col-span-2">Administradora</p>
+                <p className="col-span-2">Universidad Catolica</p>
                 <div className="flex justify-between">
-                <p className="font-['supreme-light']">
+                <p>
                   2019
                 </p>
-                <p className="font-['supreme-light']">
+                <p>
                   Chile
                 </p>
               </div>

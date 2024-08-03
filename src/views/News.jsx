@@ -28,7 +28,7 @@ const News = () => {
                 </p>
               </div>
             </div>
-            <p className="font-[bookAntiquaItalic] text-left mt-2">
+            <p className="font-[EB-Garamond-Regular] text-left mt-2">
               {item.acf.summary}
             </p>
           </div>

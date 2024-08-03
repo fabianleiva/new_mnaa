@@ -33,7 +33,7 @@ const FeaturedGallery = () => {
               className={`projectName absolute z-[-10]`}
               style={{ top: isHovered ? "-1.7rem " : 0 }}
             >
-              <span className="text-[1.1rem]">{project.acf.project_title}</span>
+              <span className="text-[1.1rem] hidden md:block">{project.acf.project_title}</span>
             </div>
             <img
               className={`${imageClass} featuredImage min-w-full z-0`}

@@ -38,6 +38,18 @@
     url("./fonts/lineto/supreme/SupremeTrial-Thin.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "EB-Garamond-Regular";
+  src: local("EB-Garamond-Regular"),
+    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "EB-Garamond-Italic";
+  src: local("EB-Garamond-Italic"),
+    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Italic.ttf") format("opentype");
+}
+
 
 * {
   margin: 0;

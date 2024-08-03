@@ -5,7 +5,7 @@ import SelectedProjects from "./views/SelectedProjects";
 import AllProjects from "./views/AllProjects";
 import ProjectGallery from "./components/ProjectGallery";
 import News from "./views/News";
-import Info from "./views/info";
+import Info from "./views/Info";
 import NotFound from "./views/NotFound";
 import "./App.css";
 import "animate.css";
