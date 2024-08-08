@@ -41,15 +41,16 @@
 @font-face {
   font-family: "EB-Garamond-Regular";
   src: local("EB-Garamond-Regular"),
-    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf") format("opentype");
+    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf")
+      format("opentype");
 }
 
 @font-face {
   font-family: "EB-Garamond-Italic";
   src: local("EB-Garamond-Italic"),
-    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Italic.ttf") format("opentype");
+    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Italic.ttf")
+      format("opentype");
 }
-
 
 * {
   margin: 0;
@@ -85,7 +86,7 @@ a:hover {
 }
 
 .inactive {
-  color: #bebebe;
+  color: #999999;
   text-decoration: none;
 }
 
@@ -139,4 +140,42 @@ a:hover {
   .emptyImg {
     display: none;
   }
+}
+
+@keyframes expand {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  60% {
+    height: 40vh;
+    opacity: 0;
+  }
+  100% {
+    height: 40vh;
+    opacity: 1;
+  }
+}
+
+.expand-enter {
+  animation: expand 1s ease-out forwards;
+}
+
+@keyframes collapse {
+  0% {
+    height: 40vh;
+    opacity: 1;
+  }
+  60% {
+    height: 40vh;
+    opacity: 0;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.collapse-enter {
+  animation: collapse 1s ease-out forwards;
 }
