@@ -11,8 +11,8 @@ const NavigationBar = () => {
   const [newsState, setNewsState] = useState("inactive");
   const [infoState, setInfoState] = useState("inactive");
 
+  // Setea todos los estados del menú según el pathname
   useEffect(() => {
-    // Setea todos los estados del menú según el pathname
     if (pathname === "/") {
       setHomeState("active");
       setProjectsState("inactive");
@@ -63,7 +63,7 @@ const NavigationBar = () => {
       <header>
         <nav className="fixed top-0 inset-x-0 z-[100] p-6">
           {/* Site title */}
-          <div className="flex justify-between">
+          <div className="">
             <div className="flex text-lg md:text-4xl tracking-widest">
               <NavLink
                 className="no-underline hover:underline font-['supreme-bold']"
@@ -76,7 +76,7 @@ const NavigationBar = () => {
 
           {/* Site menu */}
           <div>
-            <div className="flex text-lg md:text-xl mt-2">
+            <div className="flex text-sm md:text-2xl ">
               <NavLink className={homeState} to="/">
                 <h3 className="pr-3">Home</h3>
               </NavLink>
@@ -89,12 +89,14 @@ const NavigationBar = () => {
               <NavLink className={infoState} to="/info">
                 <h3 className="pr-3">Info</h3>
               </NavLink>
-
             </div>
 
             {showProjectsSecondLine && (
-              <div className="flex text-lg md:text-xl">
-                <NavLink className={featuredProjectState} to="/projects/selected">
+              <div className="flex text-sm md:text-2xl">
+                <NavLink
+                  className={featuredProjectState}
+                  to="/projects/selected"
+                >
                   <h3 className="pr-1">Destacados</h3>
                 </NavLink>
                 <h3 className="pr-1 text-[#242424]">/</h3>
