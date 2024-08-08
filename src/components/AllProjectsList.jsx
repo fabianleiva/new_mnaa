@@ -1,54 +1,77 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { ApiContext } from "../context/ApiContext";
 
 const AllProjectsList = () => {
   const { projects } = useContext(ApiContext);
-  const [projectImage, setProjectImage] = useState("");
   const [hoveredProjectId, setHoveredProjectId] = useState(null);
+  const [openProjects, setOpenProjects] = useState([]);
+  const [animatingProjects, setAnimatingProjects] = useState({});
 
-  useEffect(() => {
-    if (projects.length > 0) {
-      setProjectImage(projects[0].acf.cover);
-    }
-  }, [projects]);
-
-  const getProjectInfo = (projectId) => {
-    const project = projects.find((p) => p.id === projectId);
-    if (project) {
-      setProjectImage(project.acf.cover);
-      setHoveredProjectId(projectId);
+  const handleProjectClick = (projectId) => {
+    if (openProjects.includes(projectId)) {
+      // Si el proyecto ya está abierto, inicia la animación de cierre
+      setAnimatingProjects((prev) => ({
+        ...prev,
+        [projectId]: "collapse-enter",
+      }));
+      setTimeout(() => {
+        setOpenProjects(openProjects.filter((id) => id !== projectId));
+        setAnimatingProjects((prev) => {
+          // eslint-disable-next-line no-unused-vars
+          const { [projectId]: _, ...rest } = prev;
+          return rest;
+        });
+      }, 1000); // Duración de la animación de cierre
+    } else {
+      // Si el proyecto no está abierto, simplemente ábrelo
+      setOpenProjects([...openProjects, projectId]);
+      setAnimatingProjects((prev) => ({
+        ...prev,
+        [projectId]: "expand-enter",
+      }));
     }
   };
 
   return (
-    <section className="w-[50vw] mx-6">
-      <div className="fixed right-0">
-        <img
-          className="max-h-[65vh] max-w-[30vw] mr-6"
-          src={projectImage}
-          alt="project_image"
-        />
-      </div>
-      <div className="mb-24 mt-6">
-        <div
-          className={`h-6 grid grid-cols-8 justify-between scroll-snap-start font-[EB-Garamond-Regular] text-[#bebebe] text-md`}
-        ></div>
-
+    <section className="mx-6 mt-12">
+      <div className="mb-32">
+        <div className="h-4 lg:h-6"></div>
         {projects.map((p) => (
           <div
-            onMouseEnter={() => getProjectInfo(p.id)}
+            onMouseEnter={() => setHoveredProjectId(p.id)}
+            onClick={() => handleProjectClick(p.id)}
             key={p.id}
-            className={` ${
+            className={`${
               hoveredProjectId === p.id
-                ? "h-12 grid grid-cols-8 justify-between text-sm font-[supreme-bold] uppercase text-[#262523]"
-                : "h-12 grid grid-cols-8 justify-between text-md font-[EB-Garamond-Regular] text-[#bebebe]"
+                ? "grid grid-cols-9 justify-between text-xs lg:text-sm font-[supreme-bold] text-[#262523] uppercase tracking-wider"
+                : "grid grid-cols-9 justify-between text-xs lg:text-sm font-[supreme-light] text-[#bebebe] uppercase tracking-wider"
             }`}
           >
-            <p className="text-left col-span-3">{p.acf.project_title}</p>
-            <p className="text-left col-span-2">{p.acf.location}</p>
-            <p className="text-left">{p.acf.surface}</p>
-            <p className="text-left">{p.acf.category.name}</p>
-            <p className="text-right">{p.acf.year}</p>
+            <p className="text-left col-span-8 md:col-span-3 py-1">
+              {p.acf.project_title}
+            </p>
+            <p className="text-left hidden md:block col-span-3 py-1">
+              {p.acf.location}
+            </p>
+            <p className="text-left hidden md:block py-1">{p.acf.surface}</p>
+            <p className="text-left hidden md:block py-1">
+              {p.acf.category.name}
+            </p>
+            <p className="text-right py-1">{p.acf.year}</p>
+            <div
+              className={`col-span-9 flex justify-end overflow-hidden ${
+                animatingProjects[p.id] || ""
+              }`}
+            >
+              {openProjects.includes(p.id) && (
+                <img
+                  src={p.acf.cover}
+                  alt="selected_project"
+                  className="py-6 max-w-fit max-h-[40vh]"
+                />
+              )}
+            </div>
+            <hr className="col-span-9 h-[1px] bg-[#262523] border-0 rounded dark:bg-[#262523]" />
           </div>
         ))}
       </div>
