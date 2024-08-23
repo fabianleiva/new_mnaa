@@ -1,11 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
-import Home from "./views/Home";
 import SelectedProjects from "./views/SelectedProjects";
 import AllProjects from "./views/AllProjects";
 import ProjectGallery from "./components/ProjectGallery";
-import News from "./views/News";
-import Info from "./views/Info";
+import Team from "./views/Team";
+import Media from "./views/Media";
+import Contact from "./views/Contact";
 import NotFound from "./views/NotFound";
 import "./App.css";
 import "animate.css";
@@ -15,16 +15,20 @@ function App() {
     <>
       <NavigationBar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/projects/selected" element={<SelectedProjects />}></Route>
-        <Route path="/projects/all" element={<AllProjects />}></Route>
         <Route
-          path="/projects/:projectSlug"
+          path="/"
+          element={<Navigate to="/projects/selected" replace />}
+        />
+        <Route path="/projects/selected" element={<SelectedProjects />} />
+        <Route path="/projects/all" element={<AllProjects />} />
+        <Route
+          path="/projects/selected/:projectSlug"
           element={<ProjectGallery />}
-        ></Route>
-        <Route path="/news" element={<News />}></Route>
-        <Route path="/info" element={<Info />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        />
+        <Route path="/media/:mediaState" element={<Media />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

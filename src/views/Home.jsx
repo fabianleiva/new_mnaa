@@ -30,8 +30,8 @@ const Home = () => {
   return (
     <>
       <main className=" w-max mt-[25vh] overflow-y-scroll no-scrollbar inline-flex flex-nowrap">
-      {/* <img className="w-[7680px]" src="../../src/img/home_image_1.png" alt="home_image" /> */}
-        <div className="flex flex-row animate-infinite-scroll">
+      <img className="w-[2480px]" src="/home_image_1.png" alt="home_image" />
+        {/* <div className="flex flex-row animate-infinite-scroll">
           {renderProjects("72")}
           {renderProjects("18")}
           {renderProjects("41")}
@@ -50,7 +50,7 @@ const Home = () => {
           {renderProjects("48")}
           {renderProjects("55")}
           {renderProjects("62")}
-        </div>
+        </div> */}
       </main>
     </>
   );

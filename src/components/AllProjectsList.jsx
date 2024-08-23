@@ -44,7 +44,7 @@ const AllProjectsList = () => {
             className={`${
               hoveredProjectId === p.id
                 ? "grid grid-cols-9 justify-between text-xs lg:text-sm font-[supreme-bold] text-[#262523] uppercase tracking-wider"
-                : "grid grid-cols-9 justify-between text-xs lg:text-sm font-[supreme-light] text-[#bebebe] uppercase tracking-wider"
+                : "grid grid-cols-9 justify-between text-xs lg:text-sm font-[supreme-light] text-[#999999] uppercase tracking-wider"
             }`}
           >
             <p className="text-left col-span-8 md:col-span-3 py-1">
@@ -64,11 +64,22 @@ const AllProjectsList = () => {
               }`}
             >
               {openProjects.includes(p.id) && (
-                <img
-                  src={p.acf.cover}
-                  alt="selected_project"
-                  className="py-6 max-w-fit max-h-[40vh]"
-                />
+                <div className="flex flex-col md:flex-row justify-between w-full font-[supreme-light]">
+                  <div className="flex flex-col text-left py-6 h-[120rem] min-w-[30vw] md:max-w-[30vw] mr-6">
+                    <p>Arquitectos: {p.acf.architects}</p>
+                    <p>Colaboradores: {p.acf.colaborators}</p>
+                    <p>Ubicación: {p.acf.location}</p>
+                    <p>Año: {p.acf.year}</p>
+                    <p>Superficie: {p.acf.surface}</p>
+                  </div>
+                  <div className="flex justify-end">
+                    <img
+                      src={p.acf.cover}
+                      alt={p.acf.project_title}
+                      className="py-6 max-w-fit max-h-[30vh] md:max-h-[50vh]"
+                    />
+                  </div>
+                </div>
               )}
             </div>
             <hr className="col-span-9 h-[1px] bg-[#262523] border-0 rounded dark:bg-[#262523]" />

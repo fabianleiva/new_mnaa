@@ -28,7 +28,7 @@ const FeaturedGallery = () => {
           onMouseEnter={() => handleMouseEnter(projectId)}
           onMouseLeave={handleMouseLeave}
         >
-          <Link className="flex bg-[#fafafa]" to={`/projects/${project.slug}`}>
+          <Link className="flex bg-[#fafafa]" to={`/projects/selected/${project.slug}`}>
             <div
               className={`projectName absolute z-[-10]`}
               style={{ top: isHovered ? "-1.7rem " : 0 }}

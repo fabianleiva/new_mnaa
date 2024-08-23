@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "monument-grotesk";
+  src: local("monument-grotesk"),
+    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk") format("truetype");
+}
+
+@font-face {
   font-family: "bookAntiqua";
   src: local("bookAntiqua"),
     url("./fonts/book_antiqua/BKANT.TTF") format("truetype");
@@ -148,11 +154,11 @@ a:hover {
     opacity: 0;
   }
   60% {
-    height: 40vh;
+    height: 50vh;
     opacity: 0;
   }
   100% {
-    height: 40vh;
+    height: 50vh;
     opacity: 1;
   }
 }
@@ -163,11 +169,11 @@ a:hover {
 
 @keyframes collapse {
   0% {
-    height: 40vh;
+    height: 50vh;
     opacity: 1;
   }
   60% {
-    height: 40vh;
+    height: 50vh;
     opacity: 0;
   }
   100% {
