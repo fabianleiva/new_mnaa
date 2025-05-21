@@ -3,59 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "monument-grotesk";
-  src: local("monument-grotesk"),
-    url("./fonts/dinamo/ABC Monument Grotesk/ABC Monument-Grotesk") format("truetype");
-}
-
-@font-face {
-  font-family: "bookAntiqua";
-  src: local("bookAntiqua"),
-    url("./fonts/book_antiqua/BKANT.TTF") format("truetype");
-}
-
-@font-face {
-  font-family: "bookAntiquaItalic";
-  src: local("bookAntiquaItalic"),
-    url("./fonts/book_antiqua/ANTQUAI.TTF") format("truetype");
-}
-
-@font-face {
-  font-family: "supreme-regular";
-  src: local("SupremeLLTrialWeb-Regular"),
-    url("./fonts/lineto/supreme/SupremeTrial-Regular.otf") format("opentype");
-}
-
-@font-face {
   font-family: "supreme-bold";
-  src: local("SupremeLLTrialWeb-Bold"),
-    url("./fonts/lineto/supreme/SupremeTrial-Bold.otf") format("opentype");
+  src: local("SupremeLLWeb-Bold"),
+    url("./fonts/lineto_fonts/SupremeLLSub-Bold.woff") format("opentype");
 }
 
 @font-face {
-  font-family: "supreme-light";
-  src: local("SupremeLLTrialWeb-Light"),
-    url("./fonts/lineto/supreme/SupremeTrial-Light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "supreme-thin";
-  src: local("SupremeLLTrialWeb-Thin"),
-    url("./fonts/lineto/supreme/SupremeTrial-Thin.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "EB-Garamond-Regular";
-  src: local("EB-Garamond-Regular"),
-    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf")
-      format("opentype");
-}
-
-@font-face {
-  font-family: "EB-Garamond-Italic";
-  src: local("EB-Garamond-Italic"),
-    url("./fonts/EB_Garamond/EB_Garamond/static/EBGaramond-Italic.ttf")
-      format("opentype");
+  font-family: "supreme-book";
+  src: local("SupremeLLWeb-Book"),
+    url("./fonts/lineto_fonts/SupremeLLSub-Book.woff") format("opentype");
 }
 
 * {
@@ -73,79 +29,21 @@ html {
   text-align: center;
   color: #242424;
   min-width: 100%;
-  font-family: "supreme-regular";
+  font-family: "supreme-bold";
 }
 
 a {
   font-weight: 500;
-  color: #262520;
-  text-decoration: inherit;
-}
-a:hover {
-  text-decoration: underline;
   color: #242424;
+  text-decoration: inherit;
 }
 
 .active {
   color: #242424;
-  text-decoration: underline;
 }
 
 .inactive {
-  color: #999999;
-  text-decoration: none;
-}
-
-.projectName {
-  transition: top 0.3s ease;
-}
-
-.webTitle {
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .textSize1 {
-    font-size: 1rem;
-  }
-  .imgOnEdge {
-    margin-left: none;
-    margin-bottom: 50px;
-  }
-  .mobileGrid {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
-
-  .featuredImageContainer {
-    margin: 0px 15px 0px 15px;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    height: fit-content;
-  }
-  .featuredImage {
-    width: 100%;
-    height: auto;
-  }
-  .imgOnEdge {
-    margin-left: -40px;
-  }
-  main {
-    margin-top: 15vh;
-  }
-  .projectImage {
-    width: 100%;
-    height: auto;
-    margin: 0px 30px 0px 0px;
-  }
-  .emptyImg {
-    display: none;
-  }
+  color: #adadad;
 }
 
 @keyframes expand {
@@ -154,11 +52,11 @@ a:hover {
     opacity: 0;
   }
   60% {
-    height: 50vh;
+    height: 60vh;
     opacity: 0;
   }
   100% {
-    height: 50vh;
+    height: 60vh;
     opacity: 1;
   }
 }
@@ -169,11 +67,11 @@ a:hover {
 
 @keyframes collapse {
   0% {
-    height: 50vh;
+    height: 60vh;
     opacity: 1;
   }
   60% {
-    height: 50vh;
+    height: 60vh;
     opacity: 0;
   }
   100% {
@@ -184,4 +82,8 @@ a:hover {
 
 .collapse-enter {
   animation: collapse 1s ease-out forwards;
+}
+
+* {
+  cursor: crosshair;
 }
