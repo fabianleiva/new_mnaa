@@ -6,7 +6,7 @@ const Media = () => {
   const { mediaState } = useParams();
 
   return (
-    <main className="mt-[25vh] px-6">
+    <main className="mt-[20vh]  px-3">
       {mediaState === "news" && (
         <>
           <News />
