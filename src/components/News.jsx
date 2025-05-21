@@ -1,48 +1,56 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ApiContext } from "../context/ApiContext";
 
 const News = () => {
   const { news } = useContext(ApiContext);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Cierra el modal al presionar "Esc"
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
-    <main className="mt-[25vh] px-6 mb-48">
-      <div className="flex flex-col items-center">
+    <main className="mt-[20vh]  mb-40">
+      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-3 gap-y-12 2xl:gap-y-24">
         {news.map((item) => (
-          <div key={item.id} className="flex flex-col mb-24 md:max-w-min">
-            <div className="flex justify-between mb-2 w-full">
-              <p className="uppercase text-sm lg:text-lg font-[supreme-bold]">
-                {item.acf.title}
-              </p>
-              <p className="uppercase text-sm lg:text-lg text-[#bebebe] hidden md:block">
-                {item.acf.category.name}
-              </p>
-            </div>
-            <div className="relative flex flex-col justify-center max-w-80vw">
+          <div key={item.id} className="flex flex-col h-full">
+            <div
+              className="relative flex flex-col justify-center max-w-80vw bg-white shadow-md p-6 min-h-[40vh] lg:h-[40vh] 2xl:h-[45vh] cursor-pointer"
+              onClick={() => setSelectedImage(item.acf.cover)}
+            >
               <img
                 src={item.acf.cover}
                 alt={item.acf.title}
-                className="max-h-[100vh] md:max-w-[80vw] lg:max-w-[60vw] object-contain"
+                className="w-full h-full object-contain cursor-pointer"
               />
-              <div className="absolute bottom-0 -right-[26rem] -rotate-90 origin-bottom-left w-96 hidden md:block">
-                <p className="text-left text-2xl font-[supreme-light] text-[#bebebe]">
-                  {item.acf.date}
-                </p>
-              </div>
-              <div className="flex justify-between md:hidden mt-2">
-                <p className="text-[#bebebe] font-[supreme-regular] text-sm">
-                  {item.acf.category.name}
-                </p>
-                <p className="text-[#bebebe] font-[supreme-regular] text-sm">
-                  {item.acf.date}
-                </p>
-              </div>
             </div>
-            <p className="font-[supreme-light] text-left mt-2">
-              {item.acf.summary}
-            </p>
+            <div className="flex flex-col mt-2 text-left flex-shrink-0">
+              <p className="uppercase">{item.acf.source}</p>
+              <p className="text-[#adadad] font-[supreme-book]">{item.acf.title}</p>
+              <p className="text-[#adadad] font-[supreme-book]">{item.acf.date}</p>
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-[100]"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Imagen ampliada"
+            className="max-w-[90vw] max-h-[90vh] object-contain"
+          />
+        </div>
+      )}
     </main>
   );
 };
