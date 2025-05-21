@@ -3,7 +3,7 @@ import NavigationBar from "./components/NavigationBar";
 import SelectedProjects from "./views/SelectedProjects";
 import AllProjects from "./views/AllProjects";
 import ProjectGallery from "./components/ProjectGallery";
-import Team from "./views/Team";
+import Office from "./views/Office";
 import Media from "./views/Media";
 import Contact from "./views/Contact";
 import NotFound from "./views/NotFound";
@@ -26,7 +26,7 @@ function App() {
           element={<ProjectGallery />}
         />
         <Route path="/media/:mediaState" element={<Media />} />
-        <Route path="/team" element={<Team />} />
+        <Route path="/office" element={<Office />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
