@@ -2,14 +2,14 @@ const Conferences = () => {
   return (
     <main className="mt-[20vh] ">
       <div className="fixed top-0 w-full bg-[#fafafa] h-[20vh] z-50"></div>
-      <div className="fixed left-0 px-3 grid grid-cols-[2fr_1fr_2fr] text-[#242424] uppercase w-full bg-[#fafafa] z-50">
+      <div className="fixed left-0 px-3 grid grid-cols-[2fr_1fr_2fr] text-[#242424] uppercase w-full bg-[#fafafa] z-50 soft-in">
         <p className="text-left">Conferencias</p>
         <p></p>
         <p className="text-right">Año</p>
 
         <hr className="col-span-3 h-[1px] bg-[#adadad] border-0 rounded dark:bg-[#242424] translate-y-[-1px]" />
       </div>
-      <div className="mt-[20vh]  ">
+      <div className="mt-[20vh] soft-in">
         {/* Conferences */}
         <div className="text-left pt-6 col-span-2 mb-40 text-[#adadad] font-[supreme-book]">
           <div className="flex justify-between mt-1 align-between hover:text-[#242424]">

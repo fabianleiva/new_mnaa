@@ -2,16 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Licencia web Lineto para mnaa.cl (ver src/fonts/lineto_fonts/stylesheet.css) */
 @font-face {
   font-family: "supreme-bold";
-  src: local("SupremeLLWeb-Bold"),
-    url("./fonts/lineto_fonts/SupremeLLSub-Bold.woff") format("opentype");
+  src: url("/fonts/SupremeLLSub-Bold.woff2") format("woff2"),
+    url("./fonts/lineto_fonts/SupremeLLSub-Bold.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "supreme-book";
-  src: local("SupremeLLWeb-Book"),
-    url("./fonts/lineto_fonts/SupremeLLSub-Book.woff") format("opentype");
+  src: url("/fonts/SupremeLLSub-Book.woff2") format("woff2"),
+    url("./fonts/lineto_fonts/SupremeLLSub-Book.woff") format("woff");
+  font-display: swap;
+}
+
+/* Entrada suave de secciones: aparece con un fundido y una leve subida.
+   Mismo ritmo que el fundido de las fotos de Destacados (1.2 s, ease-out, 8 px) */
+@keyframes soft-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* La foto saliente de la galería se disuelve mientras entra la siguiente */
+@keyframes gallery-leave {
+  to {
+    opacity: 0;
+  }
+}
+
+.gallery-leave {
+  animation: gallery-leave 0.7s ease-out forwards;
+}
+
+.soft-in {
+  animation: soft-in 1.2s cubic-bezier(0, 0, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soft-in {
+    animation: none;
+  }
 }
 
 * {

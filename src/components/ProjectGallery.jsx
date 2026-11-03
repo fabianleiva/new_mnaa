@@ -5,6 +5,8 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { FaPlus } from "react-icons/fa6";
+import { responsiveImage } from "../utils/responsiveImage";
+import FadeImage from "./FadeImage";
 
 const ProjectGallery = () => {
   const [project, setProject] = useState(null);
@@ -15,6 +17,68 @@ const ProjectGallery = () => {
   const navigate = useNavigate();
   const infoPanelRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [shown, setShown] = useState(null);
+  const [leaving, setLeaving] = useState(null);
+
+  const imageUrls = project
+    ? Object.values(project.acf.project_images).filter((img) => img)
+    : [];
+  const currentUrl = imageUrls[currentImageIndex];
+
+  // Entrega las props de la foto de escritorio (se alinean con las del <img> para que el
+  // navegador elija la misma variante al precargar).
+  const desktopImage = (url) =>
+    responsiveImage(url, (w, h) => `calc(60vh * ${(w / h).toFixed(3)})`);
+
+  // Cruce entre fotos: la nueva se precarga y, cuando está lista, se disuelve sobre la anterior.
+  useEffect(() => {
+    if (!project || !currentUrl) return;
+    if (!shown || shown.slug !== project.slug) {
+      setShown({ url: currentUrl, slug: project.slug });
+      setLeaving(null);
+      return;
+    }
+    if (shown.url === currentUrl) return;
+
+    let cancelled = false;
+    const props = desktopImage(currentUrl);
+    const probe = new Image();
+    probe.sizes = props.sizes || "";
+    if (props.srcSet) probe.srcset = props.srcSet;
+    probe.src = props.src;
+    const swap = () => {
+      if (cancelled) return;
+      setLeaving(shown);
+      setShown({ url: currentUrl, slug: project.slug });
+    };
+    probe.decode().then(swap, swap);
+    return () => {
+      cancelled = true;
+    };
+  }, [currentUrl, project, shown]);
+
+  // Retira la foto saliente cuando termina el cruce.
+  useEffect(() => {
+    if (!leaving) return;
+    const timer = setTimeout(() => setLeaving(null), 700);
+    return () => clearTimeout(timer);
+  }, [leaving]);
+
+  // Precarga la foto anterior y la siguiente (solo en escritorio, donde se usa esta vista).
+  useEffect(() => {
+    if (!imageUrls.length || !window.matchMedia("(min-width: 768px)").matches)
+      return;
+    [-1, 1].forEach((offset) => {
+      const url =
+        imageUrls[(currentImageIndex + offset + imageUrls.length) % imageUrls.length];
+      const props = desktopImage(url);
+      const probe = new Image();
+      probe.sizes = props.sizes || "";
+      if (props.srcSet) probe.srcset = props.srcSet;
+      probe.src = props.src;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentImageIndex, project]);
 
   useEffect(() => {
     if (projects.length > 0) {
@@ -135,17 +199,26 @@ const ProjectGallery = () => {
               </div>
             </div>
 
-            <div className="flex justify-center items-center w-full h-full pointer-events-none">
-              <img
-                className="h-[60vh] w-auto object-contain"
-                src={
-                  Object.values(project.acf.project_images).filter(
-                    (img) => img
-                  )[currentImageIndex]
-                }
-                alt={`Image ${currentImageIndex + 1}`}
-                loading="lazy"
-              />
+            <div className="grid place-items-center w-full h-full pointer-events-none">
+              {leaving && (
+                <img
+                  key={`leaving-${leaving.url}`}
+                  className="col-start-1 row-start-1 h-[60vh] w-auto object-contain gallery-leave"
+                  {...desktopImage(leaving.url)}
+                  alt=""
+                  aria-hidden="true"
+                />
+              )}
+              {shown && (
+                <FadeImage
+                  key={shown.url}
+                  rise={false}
+                  className="col-start-1 row-start-1 h-[60vh] w-auto object-contain"
+                  {...desktopImage(shown.url)}
+                  alt={`Image ${currentImageIndex + 1}`}
+                  decoding="async"
+                />
+              )}
             </div>
 
             <p
@@ -213,12 +286,13 @@ const ProjectGallery = () => {
             Object.values(project.acf.project_images)
               .filter((img) => img)
               .map((img, index) => (
-                <img
+                <FadeImage
                   key={index}
-                  className="w-full object-cover px-3 pb-3"
-                  src={img}
+                  className="w-full h-auto object-cover px-3 pb-3"
+                  {...responsiveImage(img, "100vw")}
                   alt={`Image ${index + 1}`}
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
                 />
               ))}
         </div>

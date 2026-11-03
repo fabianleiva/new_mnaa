@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { ApiContext } from "../context/ApiContext";
 import { useNavigate } from "react-router-dom";
+import { responsiveImage } from "../utils/responsiveImage";
+import FadeImage from "./FadeImage";
 
 const AllProjectsList = () => {
   const { projects } = useContext(ApiContext);
@@ -131,10 +133,14 @@ const AllProjectsList = () => {
                         </button>
                       )}
                     </div>
-                    <img
-                      src={p.acf.cover}
+                    <FadeImage
+                      {...responsiveImage(
+                        p.acf.cover,
+                        (w, h) =>
+                          `(min-width: 1024px) min(50vw, calc(50vh * ${(w / h).toFixed(3)})), min(50vw, calc(30vh * ${(w / h).toFixed(3)}))`
+                      )}
                       alt={p.acf.project_title}
-                      className="py-6 max-w-[50vw] max-h-[30vh] lg:max-h-[50vh]"
+                      className="w-auto h-auto py-6 max-w-[50vw] max-h-[30vh] lg:max-h-[50vh]"
                     />
                   </div>
                 </div>

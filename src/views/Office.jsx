@@ -1,6 +1,6 @@
 const Office = () => {
   return (
-    <main className="mt-[20vh] px-3 tracking-wider">
+    <main className="mt-[20vh] px-3 tracking-wider soft-in">
       {/* Office info */}
       <section className="mb-20 grid grid-cols-1 lg:grid-cols-5 gap-3">
         <div className="flex uppercase text-left "></div>

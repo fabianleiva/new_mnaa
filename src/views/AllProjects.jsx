@@ -5,7 +5,7 @@ const AllProjects = () => {
     <>
       <main className="mt-[20vh] ">
         <div className="fixed top-0 w-full bg-[#fafafa] h-[20vh] z-50"></div>
-        <div className="fixed grid grid-cols-2 lg:grid-cols-3 px-3 text-[#242424] uppercase w-full bg-[#fafafa] text-base z-50">
+        <div className="fixed grid grid-cols-2 lg:grid-cols-3 px-3 text-[#242424] uppercase w-full bg-[#fafafa] text-base z-50 soft-in">
           <p className="text-left">Proyecto</p>
           <p className="text-left hidden lg:block">Lugar</p>
 
@@ -17,7 +17,10 @@ const AllProjects = () => {
 
           <hr className="col-span-3 h-[1px] bg-[#adadad] border-0 rounded dark:bg-[#242424] translate-y-[-1px]" />
         </div>
-        <AllProjectsList />
+        {/* el encabezado fijo y la lista entran con la misma animación y a la vez */}
+        <div className="soft-in">
+          <AllProjectsList />
+        </div>
       </main>
     </>
   );
