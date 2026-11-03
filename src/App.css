@@ -38,7 +38,7 @@
 }
 
 .gallery-leave {
-  animation: gallery-leave 0.7s ease-out forwards;
+  animation: gallery-leave 0.22s ease-out forwards;
 }
 
 .soft-in {

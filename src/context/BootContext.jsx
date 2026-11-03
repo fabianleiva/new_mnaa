@@ -6,7 +6,10 @@ import { BootContext } from "./bootSignal";
 // Se oculta cuando se cumplen a la vez: la tipografía cargó, pasó un tiempo mínimo
 // (para que no parpadee) y la página reportó que su contenido principal está listo.
 // Hay un tope máximo para que nunca quede atascado.
-const MIN_MS = 1600; // el nombre termina de aparecer (1 s) y se sostiene un momento
+const MIN_MS = 2000; // el nombre termina de aparecer (1 s) y se sostiene un momento
+// Tras quedar lista la primera fila, se espera un poco más para que sus fotos ya estén
+// visibles (su fundido dura 1.2 s) cuando el loader se retire.
+const CONTENT_SETTLE_MS = 700;
 const MAX_MS = 7000;
 const FADE_MS = 1300; // fundido del nombre (0.6 s) + aparición de la web (0.7 s)
 
@@ -17,6 +20,7 @@ const BootProvider = ({ children }) => {
     () => pathname === "/" || pathname === "/projects/selected"
   );
   const [contentReady, setContentReady] = useState(false);
+  const [contentSettled, setContentSettled] = useState(false);
   const [fontsReady, setFontsReady] = useState(false);
   const [minPassed, setMinPassed] = useState(false);
   const [timedOut, setTimedOut] = useState(false);
@@ -44,8 +48,15 @@ const BootProvider = ({ children }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!contentReady) return;
+    const timer = setTimeout(() => setContentSettled(true), CONTENT_SETTLE_MS);
+    return () => clearTimeout(timer);
+  }, [contentReady]);
+
   const done =
-    timedOut || (fontsReady && minPassed && (contentReady || !waitsForContent));
+    timedOut ||
+    (fontsReady && minPassed && (contentSettled || !waitsForContent));
 
   useEffect(() => {
     if (!done) return;
@@ -58,7 +69,7 @@ const BootProvider = ({ children }) => {
   }, [done]);
 
   return (
-    <BootContext.Provider value={{ setContentReady }}>
+    <BootContext.Provider value={{ setContentReady, bootDone: done }}>
       {children}
     </BootContext.Provider>
   );

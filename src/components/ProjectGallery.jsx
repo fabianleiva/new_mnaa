@@ -8,6 +8,9 @@ import { FaPlus } from "react-icons/fa6";
 import { responsiveImage } from "../utils/responsiveImage";
 import FadeImage from "./FadeImage";
 
+// Duración del cambio entre fotos de la galería (debe coincidir con .gallery-leave en App.css)
+const GALLERY_FADE_MS = 220;
+
 const ProjectGallery = () => {
   const [project, setProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -60,7 +63,7 @@ const ProjectGallery = () => {
   // Retira la foto saliente cuando termina el cruce.
   useEffect(() => {
     if (!leaving) return;
-    const timer = setTimeout(() => setLeaving(null), 700);
+    const timer = setTimeout(() => setLeaving(null), GALLERY_FADE_MS + 40);
     return () => clearTimeout(timer);
   }, [leaving]);
 
@@ -213,6 +216,7 @@ const ProjectGallery = () => {
                 <FadeImage
                   key={shown.url}
                   rise={false}
+                  duration={GALLERY_FADE_MS}
                   className="col-start-1 row-start-1 h-[60vh] w-auto object-contain"
                   {...desktopImage(shown.url)}
                   alt={`Image ${currentImageIndex + 1}`}

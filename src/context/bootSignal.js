@@ -1,6 +1,9 @@
 import { createContext, useContext, useEffect } from "react";
 
-export const BootContext = createContext({ setContentReady: () => {} });
+export const BootContext = createContext({
+  setContentReady: () => {},
+  bootDone: false,
+});
 
 // Las páginas que quieren que el loader de entrada espere llaman a esto con `true`
 // cuando su contenido principal esté listo (ver BootContext.jsx).

@@ -7,6 +7,7 @@ import Office from "./views/Office";
 import Media from "./views/Media";
 import Contact from "./views/Contact";
 import NotFound from "./views/NotFound";
+import PrefetchSections from "./components/PrefetchSections";
 import "./App.css";
 import "animate.css";
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <NavigationBar />
+      <PrefetchSections />
       <Routes>
         <Route
           path="/"
