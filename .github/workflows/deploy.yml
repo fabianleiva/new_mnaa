@@ -1,0 +1,49 @@
+name: Deploy a Hostinger
+
+# Se ejecuta en cada push a master (y se puede lanzar a mano desde la pestaña Actions).
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Evita dos deploys a la vez: si llega otro push, espera al que está en curso.
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      # Si el lint falla, no se publica nada.
+      - name: Lint
+        run: npm run lint
+
+      # `npm run build` primero actualiza src/data/image-sizes.json desde WordPress (prebuild).
+      - name: Build
+        run: npm run build
+
+      # Sube el contenido de dist/ sin borrar nada del servidor (conserva .htaccess y otros archivos).
+      - name: Deploy por SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        with:
+          username: ${{ secrets.HOSTINGER_SFTP_USER }}
+          server: ${{ secrets.HOSTINGER_SFTP_HOST }}
+          password: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_SFTP_PORT }}
+          sftp_only: true
+          local_path: './dist/*'
+          remote_path: ${{ secrets.HOSTINGER_REMOTE_PATH }}
+          delete_remote_files: false
