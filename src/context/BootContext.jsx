@@ -6,12 +6,12 @@ import { BootContext } from "./bootSignal";
 // Se oculta cuando se cumplen a la vez: la tipografía cargó, pasó un tiempo mínimo
 // (para que no parpadee) y la página reportó que su contenido principal está listo.
 // Hay un tope máximo para que nunca quede atascado.
-const MIN_MS = 2000; // el nombre termina de aparecer (1 s) y se sostiene un momento
+const MIN_MS = 2300; // el nombre termina de aparecer (2 s, con margen por el primer pintado)
 // Tras quedar lista la primera fila, se espera un poco más para que sus fotos ya estén
 // visibles (su fundido dura 1.2 s) cuando el loader se retire.
 const CONTENT_SETTLE_MS = 700;
 const MAX_MS = 7000;
-const FADE_MS = 1300; // fundido del nombre (0.6 s) + aparición de la web (0.7 s)
+const FADE_MS = 700; // fundido del nombre (0.3 s) + aparición de la web (0.4 s, con 0.2 s de retraso)
 
 const BootProvider = ({ children }) => {
   const { pathname } = useLocation();
